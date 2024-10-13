@@ -23,6 +23,7 @@ import { showToast } from "./components/core/Toast.tsx";
 import ErrorBoundary from "./components/core/ErrorBoundary.tsx";
 
 import Home from "./components/Home/Home.tsx";
+import ScrollToTop from "./components/core/ScrollToTop.tsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Details = lazy(() => import("./components/Details/Details.tsx"));
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
+        <ScrollToTop />
         <ResponsiveNavbar />
         <Box
           sx={{

@@ -32,7 +32,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const queryClient = useQueryClient();
   const reconnectTimeoutRef = useRef<number | null>(null);
-  const retryCountRef = useRef(0); // Use ref to track retries
+  const retryCountRef = useRef(0);
 
   const connectWebSocket = useCallback(() => {
     const ws = new WebSocket(FINNHUB_WEBSOCKET_URL);
