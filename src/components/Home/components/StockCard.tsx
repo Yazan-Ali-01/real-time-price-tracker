@@ -77,6 +77,10 @@ export const StockCard: React.FC<StockCardProps> = ({
           xs: "100%",
           sm: "70%",
         },
+        transition: "transform 500ms ease-in-out",
+        ":hover": {
+          scale: 1.02,
+        },
         borderRadius: 2,
         boxShadow: 3,
       }}
