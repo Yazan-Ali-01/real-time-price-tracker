@@ -53,7 +53,8 @@ The Simplified Real-time Price Tracker is a multi-page web application designed 
   - Axios is utilized for making HTTP requests to the API. It simplifies the process of handling requests and responses, including error handling and interceptors.
 
 - **Testing**: 
-  - **Vitest** and **React Testing Library** are used for testing. I wrote straightforward tests due to the simplicity of the components and the assessment requirements.
+- **Vitest** and **React Testing Library** are used for testing. I wrote straightforward tests due to the simplicity of the components and the assessment requirements. While I lean more toward UI testing with tools like **Cypress** and **Playwright**, unfortunately, I didn't have the time to incorporate those in this assessment.
+
 
 - **ESLint**: 
   - ESLint is included to enforce coding standards and best practices. It helps maintain a clean codebase by identifying potential issues and promoting consistent code formatting.
