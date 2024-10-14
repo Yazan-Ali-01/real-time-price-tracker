@@ -21,8 +21,6 @@ export const fetchStockPrice = async (symbol: string): Promise<StockPrice> => {
 
     return data;
   } catch (error: unknown) {
-    // Specify the type as unknown
-    // Check if the error is an AxiosError to access the message
     if (axios.isAxiosError(error)) {
       console.error(
         `Failed to fetch stock price for ${symbol}:`,
@@ -40,7 +38,7 @@ export const fetchStockPrice = async (symbol: string): Promise<StockPrice> => {
 };
 
 /**
- * Fetches historical cryptocurrency candle data from the CoinGecko API.
+ * Fetches historical cryptocurrency candle data from the CoinGecko API  (HARDCODED LAST 30 DAYS).
  *
  * @param context - The context containing the query key, which includes the cryptocurrency ID.
  * @returns A promise that resolves to a CoinGeckoCandleData object.
@@ -67,8 +65,6 @@ export const fetchCryptoCandles = async ({
 
     return data;
   } catch (error: unknown) {
-    // Specify the type as unknown
-    // Check if the error is an AxiosError to access the message
     if (axios.isAxiosError(error)) {
       console.error(`Failed to fetch crypto candles for ${id}:`, error.message);
       throw new Error(`Could not fetch crypto candles: ${error.message}`);

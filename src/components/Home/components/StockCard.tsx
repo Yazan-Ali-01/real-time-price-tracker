@@ -69,7 +69,6 @@ export const StockCard: React.FC<StockCardProps> = ({
     );
   }
 
-  const priceDisplay = data?.c ? data.c.toFixed(2) : "N/A";
   return (
     <Card
       sx={{
@@ -133,7 +132,7 @@ export const StockCard: React.FC<StockCardProps> = ({
             >
               Price:{" "}
               <span style={{ fontWeight: "bold", fontSize: "1.15rem" }}>
-                ${priceDisplay}
+                ${data?.c?.toFixed(2) || "N/A"}
               </span>
             </Typography>
             <Typography

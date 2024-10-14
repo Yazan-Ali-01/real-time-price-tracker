@@ -68,6 +68,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 0,
+      gcTime: 60,
       refetchOnWindowFocus: true,
       retry: 1,
     },
@@ -84,7 +85,6 @@ createRoot(document.getElementById("root")!).render(
     <CssBaseline />
     <QueryClientProvider client={queryClient}>
       <SocketProvider>
-        {/* Global Loading Indicator */}
         <GlobalLoadingIndicator />
         <Box sx={{ position: "relative", minHeight: "100%" }}>
           <Container

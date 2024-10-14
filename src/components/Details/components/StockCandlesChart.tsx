@@ -17,11 +17,11 @@ import {
   useTheme,
 } from "@mui/material";
 
-const CryptoCandlesChart = ({ id }: { id: string }) => {
+const CryptoCandlesChart = ({ symbol }: { symbol: string }) => {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("xs"));
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
-  const { data, isLoading } = useCryptoCandlesQuery(id);
+  const { data, isLoading } = useCryptoCandlesQuery(symbol);
 
   let chartHeight = 400;
   if (isXs) {
@@ -34,7 +34,7 @@ const CryptoCandlesChart = ({ id }: { id: string }) => {
     return (
       <Box>
         <Typography color="primary.main" variant="h2" gutterBottom>
-          {id.toUpperCase()} Price Chart
+          {symbol.toUpperCase()} Price Chart
         </Typography>
         <Skeleton
           variant="rectangular"
@@ -48,14 +48,14 @@ const CryptoCandlesChart = ({ id }: { id: string }) => {
   if (!data) return null;
 
   const chartData = data.prices.map(([timestamp, price]) => ({
-    time: format(new Date(timestamp), "HH:mm"),
+    time: format(new Date(timestamp), "DD:HH:mm"),
     price: price,
   }));
 
   return (
     <>
       <Typography color="primary.main" variant="h2" fontSize={isSm ? 20 : 40}>
-        {id.toUpperCase()} Price Chart {isSm && <br />} (Last 24 Hours)
+        {symbol.toUpperCase()} Price Chart {isSm && <br />} (Last 30 Days)
       </Typography>
       <ResponsiveContainer width="100%" height={chartHeight}>
         <LineChart data={chartData}>

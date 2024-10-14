@@ -10,7 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
-import GoBackButton from "../core/GoBackButton";
+import { GoBackButton } from "../core/GoBackButton";
 import { cryptoInfoMap } from "../../configs/cryptoSymbols";
 import { useStockSubscription } from "../../hooks/useStockSubscription";
 import { formatDate } from "../../lib/formatDate";
@@ -27,7 +27,7 @@ const StyledGrid = styled(Grid2)<Grid2Props>(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
   flex: 1,
   [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1), // Reduce padding on small screens
+    padding: theme.spacing(1),
   },
 }));
 
@@ -36,7 +36,7 @@ const Details = () => {
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { data, isLoading } = useStockSubscription(symbol! || "");
+  const { data, isLoading } = useStockSubscription(symbol!);
 
   if (isLoading) {
     return (
@@ -67,7 +67,7 @@ const Details = () => {
     );
   }
 
-  const coingeckoId = mapBinanceSymbolToCoingeckoId(symbol || "");
+  const coingeckoId = mapBinanceSymbolToCoingeckoId(symbol!);
   const marketData = [
     { label: "Last Traded Price", value: `$${data?.p?.toFixed(2) || 0}` },
     { label: "Current Price", value: `$${data?.c?.toFixed(2)}` },
@@ -90,9 +90,9 @@ const Details = () => {
             display: "flex",
             flexDirection: isSm ? "column" : "row",
             alignItems: "center",
-            justifyContent: isSm ? "center" : "flex-start", // Center on small screens
+            justifyContent: isSm ? "center" : "flex-start",
             gap: isSm ? 2 : 0,
-            textAlign: isSm ? "center" : "left", // Center text on small screens
+            textAlign: isSm ? "center" : "left",
           }}
         >
           <img
@@ -101,7 +101,7 @@ const Details = () => {
             style={{
               width: isSm ? "50px" : "60px",
               height: isSm ? "50px" : "60px",
-              marginRight: isSm ? 0 : "20px", // Remove margin on small screens
+              marginRight: isSm ? 0 : "20px",
             }}
           />
           <Typography
@@ -123,7 +123,7 @@ const Details = () => {
               display: "flex",
               flexDirection: "column",
               marginLeft: isSm ? 0 : "auto",
-              textAlign: isSm ? "center" : "right", // Adjust text alignment
+              textAlign: isSm ? "center" : "right",
             }}
           >
             <Typography variant="h6">Data Updated On</Typography>
@@ -142,17 +142,17 @@ const Details = () => {
             borderRadius: 2,
             border: "1px solid",
             borderColor: "primary.main",
-            flexDirection: isSm ? "column" : "row", // Column layout on small screens
+            flexDirection: isSm ? "column" : "row",
           }}
         >
           {marketData.map((item, index) => (
             <StyledGrid
               key={index}
               sx={{
-                flexDirection: isSm ? "row" : "column", // Each item as a row on small screens
+                flexDirection: isSm ? "row" : "column",
                 justifyContent: isSm ? "space-between" : "center",
                 alignItems: "center",
-                width: isSm ? "100%" : "auto", // Full width on small screens
+                width: isSm ? "100%" : "auto",
                 padding: isSm ? theme.spacing(1) : theme.spacing(2),
               }}
             >
@@ -171,7 +171,7 @@ const Details = () => {
           ))}
         </Grid2>
 
-        <StockCandlesChart id={coingeckoId} />
+        <StockCandlesChart symbol={coingeckoId} />
       </Stack>
     </>
   );

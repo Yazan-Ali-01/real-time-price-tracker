@@ -1,4 +1,3 @@
-// src/hooks/useStockQueries.ts
 import {
   QueryFunctionContext,
   useQuery,
@@ -27,6 +26,7 @@ export const useStockQuery = (symbol: string): UseQueryResult<StockPrice> => {
   });
 };
 
+// Hook for fetching Crypto Candles (Last 30 Days "Hardcoded")
 export const useCryptoCandlesQuery = (
   id: string
 ): UseQueryResult<CoinGeckoCandleData> => {

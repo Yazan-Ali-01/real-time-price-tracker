@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Button } from "@mui/material";
 
-const GoBackButton = () => {
+export const GoBackButton = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -27,5 +27,3 @@ const GoBackButton = () => {
     </Button>
   );
 };
-
-export default GoBackButton;

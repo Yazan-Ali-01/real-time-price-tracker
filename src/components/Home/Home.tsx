@@ -16,16 +16,13 @@ const Home: React.FC = () => {
         width: "100%",
       }}
     >
-      {/* <Typography variant="h1" sx={{ fontSize: { xs: 24, sm: 32, md: 40 } }}>
-        Track Real-Time Prices - Crypto Trading
-      </Typography> */}
       <Typography
         variant="h1"
         sx={{ fontSize: { xs: 24, sm: 32, md: 40 }, fontWeight: "bold" }}
       >
         <Typewriter
           options={{
-            strings: ["Track Real-Time Prices", "Crypto Trading"], // Text to type
+            strings: ["Track Real-Time Prices", "Crypto Trading"],
             autoStart: true,
             loop: true, // Loop through the strings
             delay: 75, // Delay between typing each character
