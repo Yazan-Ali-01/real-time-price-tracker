@@ -48,7 +48,7 @@ const CryptoCandlesChart = ({ symbol }: { symbol: string }) => {
   if (!data) return null;
 
   const chartData = data.prices.map(([timestamp, price]) => ({
-    time: format(new Date(timestamp), "DD:HH:mm"),
+    time: format(new Date(timestamp), "dd:HH:mm"),
     price: price,
   }));
 
